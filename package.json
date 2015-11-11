@@ -1,0 +1,51 @@
+{
+  "name": "nodejs-starter-kit",
+  "version": "1.0.0",
+  "description": "Setup Nodejs application with express, mongodb and socket io",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/gulp",
+    "dev": "./node_modules/.bin/gulp dev",
+    "test": "./node_modules/.bin/gulp test",
+    "coverage": "./node_modules/.bin/gulp coverage",
+    "ci": "./node_modules/.bin/gulp ci"
+  },
+  "engines": {
+    "node": "4.x",
+    "npm": "2.x"
+  },
+  "author": "Pierre-Alexandre Dupuy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "compression": "^1.4.4",
+    "cookie-parser": "^1.3.5",
+    "errorhandler": "^1.3.6",
+    "express": "^4.12.4",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.3",
+    "helmet": "^0.9.1",
+    "lodash": "^3.9.3",
+    "method-override": "^2.3.3",
+    "morgan": "^1.5.3",
+    "mysql": "^2.7.0",
+    "nodemon": "^1.3.7",
+    "q": "^1.4.1",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "gulp-eslint": "^1.1.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jscs": "^1.6.0",
+    "gulp-mocha": "^2.1.1",
+    "mocha": "^2.2.5",
+    "nock": "^2.4.0",
+    "sinon": "^1.14.1",
+    "supertest": "^1.0.1"
+  },
+  "optionalDependencies": {
+    "mongoose": "^4.2.5",
+    "socket.io": "^1.3.7"
+  }
+}
