@@ -9,10 +9,10 @@ var all = {
   env: process.env.NODE_ENV,
 
   // Root path of server
-  path : {
+  path: {
     root: path.join(path.resolve(__dirname), '..', '..', '..'),
-    public: path.join(path.resolve(__dirname) , '..', '..', '..', 'public'),
-    modules: path.join(path.resolve(__dirname) , '..', '..', '..', 'src', 'modules')
+    public: path.join(path.resolve(__dirname), '..', '..', '..', 'public'),
+    modules: path.join(path.resolve(__dirname), '..', '..', '..', 'src', 'modules')
   },
 
   // Server port

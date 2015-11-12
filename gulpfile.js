@@ -7,12 +7,12 @@ var eslint = require('gulp-eslint');
 //GLOBAL TASKS
 gulp.task('default', ['prod']);
 
-gulp.task('ci', ['ci:lint', 'ci:test', 'ci:coverage'], function() {
+gulp.task('ci', ['ci:lint', 'ci:test', 'ci:coverage'], function () {
   process.exit();
 });
 
 //production
-gulp.task('prod', function() {
+gulp.task('prod', function () {
   nodemon({
     script: './src/index.js',
     ext: 'js',
@@ -23,7 +23,7 @@ gulp.task('prod', function() {
 });
 
 //developpement
-gulp.task('dev', function() {
+gulp.task('dev', function () {
   nodemon({
     script: './src/index.js',
     ext: 'js',
@@ -34,17 +34,17 @@ gulp.task('dev', function() {
   });
 });
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
   return gulp.src(['./src/**/*.js'])
-      .pipe(eslint())
-      .pipe(eslint.format());
+    .pipe(eslint())
+    .pipe(eslint.format());
 })
 
-gulp.task('ci:lint', function() {
+gulp.task('ci:lint', function () {
   return gulp.src(['./src/**/*.js'])
-      .pipe(eslint())
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('pre-coverage', function () {
@@ -55,7 +55,7 @@ gulp.task('pre-coverage', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('coverage', ['pre-coverage'], function() {
+gulp.task('coverage', ['pre-coverage'], function () {
   process.env.NODE_ENV = 'test';
 
   gulp.src(['test/**/*.js'])
@@ -64,13 +64,13 @@ gulp.task('coverage', ['pre-coverage'], function() {
       dir: './target/coverage',
       reporters: ['html']
     }))
-    .once('end', function() {
+    .once('end', function () {
       process.exit();
     });
 
 });
 
-gulp.task('ci:coverage', ['pre-coverage'], function() {
+gulp.task('ci:coverage', ['pre-coverage'], function () {
   process.env.NODE_ENV = 'test';
 
   gulp.src(['test/**/*.js'])
@@ -81,7 +81,7 @@ gulp.task('ci:coverage', ['pre-coverage'], function() {
     }));
 });
 
-gulp.task('mocha', function() {
+gulp.task('mocha', function () {
   process.env.NODE_ENV = 'test';
 
   return gulp
@@ -94,7 +94,7 @@ gulp.task('mocha', function() {
 
 });
 
-gulp.task('ci:test', function() {
+gulp.task('ci:test', function () {
   process.env.NODE_ENV = 'test';
 
   return gulp
@@ -111,7 +111,7 @@ gulp.task('ci:test', function() {
 });
 
 //test live reload
-gulp.task('test', ['mocha'], function() {
+gulp.task('test', ['mocha'], function () {
   gulp.watch(['src/**/*.js', 'test/**/*.js'], ['mocha']);
 });
 

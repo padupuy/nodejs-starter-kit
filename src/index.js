@@ -21,12 +21,12 @@ var routes = require('./routes');
 routes.init(app);
 
 //Let's get started
-server.listen(config.port, function() {
+server.listen(config.port, function () {
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 });
 
 /* istanbul ignore next */
-process.on('uncaughtException', function(error) {
+process.on('uncaughtException', function (error) {
   console.error(error.stack);
 });
 
@@ -35,15 +35,15 @@ var mongoose = require('mongoose');
 mongoose.connect(config.mongo.uri, config.mongo.options);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-	console.log('connected to mongo');
+db.once('open', function () {
+  console.log('connected to mongo');
 });
 
 // SOCKET IO
 var io = require('socket.io')(server);
-io.on('connection', function(socket){
+io.on('connection', function (socket) {
   console.log('a user connected');
-  socket.on('disconnect', function(){
+  socket.on('disconnect', function () {
     console.log('user disconnected');
   });
 });

@@ -1,6 +1,6 @@
 /**
-* Main application routes
-*/
+ * Main application routes
+ */
 
 'use strict';
 
@@ -12,9 +12,9 @@ var config = require('./config/environment');
 var me = this;
 var routes = [];
 
-module.exports.init = function(app) {
+module.exports.init = function (app) {
 
-  app.get('/modules/', function(req, res) {
+  app.get('/modules/', function (req, res) {
     res.type('application/json');
     return res.status(200).json(routes);
   });
@@ -26,13 +26,13 @@ module.exports.init = function(app) {
 
 module.exports.registerModulesRoutes = function (app, routes) {
   fs.readdir(config.path.modules, function (err, files) {
-    if(!err){
-      files.forEach(function(file) {
+    if (!err) {
+      files.forEach(function (file) {
         routes.push(me.registerModule(app, file));
       });
     }
   });
-}
+};
 
 module.exports.registerModule = function (app, file) {
   var mod = require(path.join(config.path.modules, file));
@@ -42,7 +42,7 @@ module.exports.registerModule = function (app, file) {
 
   try {
     app.use(route, mod.router);
-  } catch(e) {
+  } catch (e) {
     error = e.message;
   }
 
@@ -53,7 +53,8 @@ module.exports.registerModule = function (app, file) {
     id: mod.id,
     desc: mod.desc
   };
-}
+};
+
 module.exports.unregisterModulesRoutes = function () {
   routes = [];
-}
+};

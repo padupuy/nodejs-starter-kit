@@ -15,7 +15,7 @@ var path = require('path');
 
 var config = require('./environment');
 
-module.exports = function(app) {
+module.exports = function (app) {
   var env = app.get('env');
 
   app.use(compression()); //gzip response
@@ -29,7 +29,7 @@ module.exports = function(app) {
   app.use(helmet()); //secure Express app against CSP, XSS etc..
 
   // Enable CORS on requests
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
